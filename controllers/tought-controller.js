@@ -16,7 +16,8 @@ const thoughtController = {
 
     // Get single/each thought
     getThoughtById(req, res) {
-        Thought.findById({ _id: req.params.thoughtId })
+        Thought.findById({ _id: req.params.id })
+            .select('-__v')
             .then((dbThoughtData) => {
                 if (!dbThoughtData) {
                     res.status(404).json({ message: "Wrong Tought ID!" });
@@ -32,12 +33,14 @@ const thoughtController = {
 
     // Create New Thought
     addThought(req, res) {
+        let thoughtId;
         Thought.create(req.body)
             .then(({ _id }) => {
+                thoughtId = _id;
                 return User.findOneAndUpdate(
-                    { _id: req.body.userId },
+                    { username: req.body.username },
                     { $push: { thoughts: _id } },
-                    { new: true }
+                    { new: true, runValidators: true }
                 );
             })
             .then((dbUserData) => {
@@ -56,7 +59,7 @@ const thoughtController = {
     // Update thought data
     updateThought(req, res) {
         Thought.findOneAndUpdate(
-            { _id: req.params.thoughtId }, 
+            { _id: req.params.id }, 
             req.body, {
                 new: true,
                 runValidators: true,
@@ -77,7 +80,7 @@ const thoughtController = {
 
     // Delete Thought by id
     deleteThought(req, res) {
-        Thought.findOneAndDelete({ _id: req.params.thoughtId })
+        Thought.findOneAndDelete({ _id: req.params.id })
             .then((dbThoughtData) => {
                 if (!dbThoughtData) {
                     res.status(404).json({ message: "Wrong Tought ID!" });

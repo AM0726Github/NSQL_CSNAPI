@@ -18,7 +18,7 @@ const userController = {
     },
     // Method for Single/Each User
     getUserById(req, res) {
-        User.findById({ _id: req.params.userId })
+        User.findById({ _id: req.params.id })
             .populate({ 
                 path: "thoughts", 
                 select: "-__v" 
@@ -47,8 +47,8 @@ const userController = {
     // Update User Data
     updateUser(req, res) {
         User.findOneAndUpdate(
-                { _id: req.params.userId }, 
-                body, 
+                { _id: req.params.id }, 
+                req.body, 
                 { new: true, runValidators: true }
             )
             .then((dbUserData) => {
@@ -66,7 +66,7 @@ const userController = {
 
     // Delete actual User
     deleteUser(req, res) {
-        User.findOneAndDelete({ _id: req.params.userId })
+        User.findOneAndDelete({ _id: req.params.id })
             .then((dbUserData) => {
                 if (!dbUserData) {
                     res.status(404).json({ message: "Wrong User ID!" });
@@ -95,7 +95,7 @@ const userController = {
     addFriend(req, res) {
         User.findOneAndUpdate(
             { _id: req.params.userId },
-            { $push: { friends: params.friendId } },
+            { $push: { friends: req.params.friendId } },
             { new: true, runValidators: true }
         )
             .then((dbUserData) => {
