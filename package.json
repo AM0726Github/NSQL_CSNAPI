@@ -1,0 +1,23 @@
+{
+  "name": "nsql_csnapi",
+  "version": "1.0.0",
+  "description": "NoSql Backend sample ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AM0726Github/NSQL_CSNAPI.git"
+  },
+  "keywords": [
+    "NoSQL"
+  ],
+  "author": "Alik Margaryan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AM0726Github/NSQL_CSNAPI/issues"
+  },
+  "homepage": "https://github.com/AM0726Github/NSQL_CSNAPI#readme"
+}
