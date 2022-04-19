@@ -4,7 +4,7 @@ Backend server and routes with NoSQL Database
 
 ## Video
 
-[![Click link to view video](./Assets/WalkTrough/ScreenShot.gif](https://drive.google.com/file/d/1DVEB6yDok6_ol0Hp_xr-YIsxhuGf7QOv/view)
+[![Click link to view video](./Assets/WalkTrough/ScreenShot.gif)](https://drive.google.com/file/d/1DVEB6yDok6_ol0Hp_xr-YIsxhuGf7QOv/view)
 
 View video walktrough: [Download Local File](https://github.com/AM0726Github/NSQL_CSNAPI/tree/main/Assets/WalkTrough/NSQL_CSNAPI_Walktrough.mp4)
 
