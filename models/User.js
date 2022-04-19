@@ -1,6 +1,7 @@
 // Schema and model from noSQL mangoose
 const { Schema, model } = require("mongoose");
 
+// Schema for Users
 const UserSchema = new Schema(
   {
     username: {
